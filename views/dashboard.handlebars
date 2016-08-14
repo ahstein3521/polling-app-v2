@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="row">
+	{{#ballots}}
+
+	<div class="col-sm-3 col-xs-12">
+		<button class="pull-right delete-btn" onclick="handleDelete(this,'{{_id}}')" title="Delete">&Cross;</button>
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		  	<a href="/vote?id={{_id}}" target="_blank">
+		    	<h3 class="panel-title">{{title}}</h3>
+		    </a>
+		  </div>
+		  <div class="panel-body">
+		    <table class="table">
+		    	<thead>
+			    	<tr>
+			    		<th>Option</th>
+			    		<th>Votes</th>
+			    	</tr>
+			    </thead>
+			    <tbody>	
+		    	{{#each options}}
+		    		<tr>
+			    		<td>{{this.name}}</td>
+			    		<td>{{this.votes}}</td>
+			    	</tr>	
+		    	{{/each}}
+		    	</tbody>
+		    </table>
+		  </div>
+		</div>
+	</div>
+	{{/ballots}}
+	</div>
+</div>

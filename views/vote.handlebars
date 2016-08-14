@@ -1,0 +1,9 @@
+<div>
+	<h3>{{ballot.title}}</h3>
+	<h6>by {{ballot.author}}</h6>
+	{{#if submitted}}
+		{{>_chart}}
+	{{else}}
+		{{>_ballot}}
+	{{/if}}	
+</div>
