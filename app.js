@@ -37,6 +37,6 @@ require("./routes/error")(app);
 
 
 
-app.listen(process.env.port||8080,function(){
+app.listen(process.env.PORT||8080,function(){
 	console.log("Serving ....");
 })
