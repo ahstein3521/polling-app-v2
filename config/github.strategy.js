@@ -6,7 +6,7 @@ module.exports = function(){
     passport.use(new GithubStrategy({
       clientID: process.env.clientID,
       clientSecret: process.env.clientSecret,
-      callbackURL: 'ahstein3521-polling-app/auth/callback'
+      callbackURL: 'https://ahstein3521-polling-app.herokuapp.com/auth/callback'
     },
     function(accessToken,refreshToken, profile, done){
             

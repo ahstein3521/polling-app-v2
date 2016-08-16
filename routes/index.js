@@ -8,25 +8,6 @@ module.exports=function(app){
 		}
 		next();
 	})	
-	// app.get("/remove",function(req,res){
-	// 	Votes.remove({},function(e,d){
-	// 		console.log(d)
-	// 		res.redirect("/")
-	// 	})
-	// })
-	// // app.get("/seed",function(req,res,next){
-		
-	// // 	seed.forEach(function(v,i){
-	// // 		var vote=new Votes();
-	// // 		vote.options=v.options;
-	// // 		vote.title=v.title;
-	// // 		vote.voters=[];
-	// // 		vote.author=v.author;
-	// // 		vote.save();	
-	// // 	})
-
-	// // 	res.redirect("/")
-	// // })
 	app.get("/",function(req,res,next){	
 		var user=req.user? req.session.user : null;
 		Votes.find({},"title",function(err,data){
