@@ -8,7 +8,7 @@ var cookieParser=require('cookie-parser')
 var bodyParser=require('body-parser');
 var requestIp = require('request-ip');
 
-require('dotenv').config();
+// require('dotenv').config();
 
 
 mongoose.connect(process.env.mongoID);
