@@ -2,7 +2,7 @@
 {{#each ballot.options}} 
 	<div class="radio">
 		<label>
-			<input type="radio" name="option" value={{this.name}}>
+			<input type="radio" name="option" value={{this.name}} required>
 			{{this.name}}
 		</label>
 	</div>
@@ -16,7 +16,6 @@
 	</div>
 {{/if}}
 	<div class='form-btn'>
-		<input type="submit" class="btn-primary center-block" 
-			onclick="submitVote('{{ballot._id}}')" >
+		<input type="submit" class="btn-primary center-block">
 	</div>			
 </form>

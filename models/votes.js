@@ -14,6 +14,7 @@ function formatTitle(str){
 
 function formatOptions(str){
 	var obj={};
+	str=str.trim();
 	var arr=str.split("\r\n").map(function(val){
 			return formatTitle(val);
 		})

@@ -1,7 +1,8 @@
 var Vote=require("../models/votes");
-
+var updateVote=require("../helpers/add_option");
 
 module.exports=function(app){
+
 	app.get("/vote",function(req,res,next){
 		var user=req.session.user
 		var flag=false;//var for whether or not a vote was submitted under username and/or ip
@@ -19,21 +20,17 @@ module.exports=function(app){
     })
 
 	app.get("/submitted",function(req,res,next){
-			var vote=req.session.vote;
-			var key=req.query.option.split("-").join(" ");
-			var options=vote.options;
-			var count=options.hasOwnProperty(key)? options[key].votes+=1 : 1;
-			
-			vote.options[key]={name:key,votes:count}
-			
-			return res.render("vote",{user:req.session.user,ballot:vote,submitted:true,})
+		var vote=updateVote(req,false);
+		
+		res.render("vote",{user:req.session.user,ballot:vote,submitted:true})
+    })
+    app.get("/stream",function(req,res){
+    	if(!req.session.vote){
+    		return res.status(422).send("Something bad happened");
+    	}
+    	res.json(req.session.vote);
     })    
-	
-	app.get("/stream",function(req,res){
-		// Vote.remove({},function(e,d){console.log("penis")})
-		res.json(req.session.vote)
-	})
-    
+
     app.post("/vote/new",function(req,res,next){
     	var vote=new Vote();
     		
@@ -48,18 +45,8 @@ module.exports=function(app){
     })
     
     app.put("/vote",function(req,res,next){
-   		var vote=req.session.vote;
-   		var user=req.session.user;
-   		var key=req.body.vote;
-   		var options=vote.options;
-   		var count=options.hasOwnProperty(key)? options[key].votes+=1 : 1;
-   		
-   		if(user.username) user=user.username
-   		
-
-   		vote.options[key]={name:key,votes:count}
-   		vote.voters.push(user);
-   		
+   		var vote=updateVote(req,true)
+   		console.log("PUT ",vote)
    		Vote.findByIdAndUpdate({_id:vote._id}, vote, {new:true},function(err,data){
    			if(err) return res.status(500).send(err);
    			res.json({message:"Submitted"})	
@@ -71,7 +58,7 @@ module.exports=function(app){
 	    if (err) {
 	      return res.status(500).send(error);
 	    }
-	    res.json({ message: 'Ballot Deleted' });
+	    res.json({ message: 'Ballot Deleted:'+req.query.id });
 	  });
 	});    	
 }

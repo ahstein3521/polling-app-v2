@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "gulp scripts && nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -15,7 +16,6 @@
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.14.0",
-    "gulp": "^3.9.1",
     "handlebars": "^4.0.5",
     "mongoose": "^4.5.8",
     "oauth": "^0.9.14",
@@ -25,8 +25,17 @@
   },
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-compile-handlebars": "^0.6.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-declare": "^0.3.0",
+    "gulp-handlebars": "^4.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-nodemon": "^2.1.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-order": "^1.1.1",
     "gulp-sass": "^2.3.2",
     "gulp-uglify": "^2.0.0",
+    "gulp-wrap": "^0.13.0",
     "nodemon": "^1.10.0"
   }
 }

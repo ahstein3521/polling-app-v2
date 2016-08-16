@@ -1,7 +1,6 @@
 var express=require("express");
 var app=express();
 var exphbs=require('express-handlebars');
-var PORT=process.env.PORT||8080;
 var passport=require('passport');
 var session=require('express-session')
 var mongoose = require('mongoose');
@@ -9,7 +8,12 @@ var cookieParser=require('cookie-parser')
 var bodyParser=require('body-parser');
 var requestIp = require('request-ip');
 
+require('dotenv').config();
+
+
 mongoose.connect(process.env.mongoID);
+
+
 
 app.use(requestIp.mw())
 app.use(cookieParser());
@@ -18,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true}))
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
+
 
 app.use("/public", express.static(__dirname+'/public'));
 
@@ -32,6 +37,6 @@ require("./routes/error")(app);
 
 
 
-app.listen(PORT,function(){
-	console.log("Listening on port "+PORT);
+app.listen(process.env.port||8080,function(){
+	console.log("Serving ....");
 })
