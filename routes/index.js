@@ -1,5 +1,4 @@
 var Votes=require("../models/votes");
-var seed=require("./seed.js")
 
 module.exports=function(app){
 	app.use(function(req,res,next){
