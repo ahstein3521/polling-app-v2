@@ -1,5 +1,5 @@
 var express=require("express");
-var app=express();
+var app=module.exports.app=exports.app=express();
 var exphbs=require('express-handlebars');
 var passport=require('passport');
 var session=require('express-session')

@@ -17,7 +17,7 @@ module.exports=function(app){
 	 		
 			return res.render("vote",{ballot:data,user:req.session.user,submitted:flag})  
 		})
-    })
+  })
 
 	app.get("/submitted",function(req,res,next){
 		var vote=updateVote(req,false);
