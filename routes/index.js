@@ -17,10 +17,10 @@ module.exports=function(app){
 	})
 	
 	app.get("/dashboard",function(req,res,next){
-		if(!req.user) return res.redirect("/")
-		var query={author:req.session.user.username};
+		// if(!req.user) return res.redirect("/")
+		// var query={author:req.session.user.username};
 		
-		Votes.find(query,function(error,data){
+		Votes.find({},function(error,data){
 			if(error) return next(error);
 			
 			res.render("dashboard",{ballots:data,user:req.session.user});
