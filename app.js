@@ -8,7 +8,7 @@ var cookieParser=require('cookie-parser')
 var bodyParser=require('body-parser');
 var requestIp = require('request-ip');
 
-require('dotenv').config();
+// require('dotenv').config();
 
 
 mongoose.connect(process.env.mongoID);
@@ -37,6 +37,6 @@ require("./routes/error")(app);
 
 
 
-app.listen(process.env.port||8080,function(){
+app.listen(process.env.PORT||8080,function(){
 	console.log("Serving ....");
 })
