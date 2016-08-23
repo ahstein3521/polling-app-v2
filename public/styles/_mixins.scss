@@ -1,0 +1,5 @@
+@mixin PopOut($radius){
+	border-radius:$radius;
+	box-shadow:inset 2px -3px 12px rgba(0,0,0,0.7);
+	background:#eca1ee;
+}

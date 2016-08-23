@@ -1,0 +1,24 @@
+body{
+	padding-top: 100px;
+	background:#cccccc;
+}
+h1,h2,h3,h4,h5,h6{
+	text-align: center;
+}
+nav{
+	font-family: 'Oswald', sans-serif;
+	box-shadow:2px -3px 15px rgba(0,0,0,0.4);
+}
+
+.navbar-right{
+	padding:3px;
+}
+.dropdown-toggle{
+	margin-top:10px;
+	border: none;
+	background: none;
+}
+.profile-pic{
+	height:30px;
+}
+

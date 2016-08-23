@@ -1,0 +1,45 @@
+.landing-page-title{
+	font-family: 'Oswald', sans-serif;
+	margin: 0px auto;
+	width:50%;
+	@include PopOut(30px);
+	
+	@media screen and (max-width:760px){
+		width:90%;
+		h1{
+			font-size:2rem;
+		}
+	}
+	h1{
+		color:#a91e1e;
+		font-size:4rem;
+		text-shadow:-2px 4px 1px black;
+		line-height: -1px;
+	}
+}
+.container{
+	width:50%;
+		@media screen and (max-width:500px){
+		width:95%;
+	}
+}
+.vote-list{
+	@include PopOut(10px);
+	padding:15px;
+	
+	ul{
+		list-style: none;
+		background:#3f67ac;
+		border-radius:5px;
+		li{
+			a{
+				color:white;
+				&:hover{
+					color:lightgreen;
+				}	
+			}
+		}
+
+	}
+
+}

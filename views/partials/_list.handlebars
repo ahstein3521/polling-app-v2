@@ -1,10 +1,10 @@
 <div class="vote-list">
 	<p><strong>Recently Created Polls</strong></p>
-	<ul class="list-group">
+	<ul>
 	{{#each ballot}}
-		<li class="list-group-item">
+		<li>
 			<a href="vote?id={{this._id}}">
-				<h4 class="list-group-item-heading">{{this.title}}</h4>
+				<h3>{{this.title}}</h3>
 			</a>	
 		</li>
 	{{/each}}
