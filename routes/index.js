@@ -20,7 +20,7 @@ module.exports=function(app){
 		if(!req.user) return res.redirect("/")
 		var query={author:req.session.user.username};
 		
-		Votes.find({},function(error,data){
+		Votes.find({query},function(error,data){
 			if(error) return next(error);
 			
 			res.render("dashboard",{ballots:data,user:req.session.user});
