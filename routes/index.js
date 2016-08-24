@@ -17,8 +17,8 @@ module.exports=function(app){
 	})
 	
 	app.get("/dashboard",function(req,res,next){
-		// if(!req.user) return res.redirect("/")
-		// var query={author:req.session.user.username};
+		if(!req.user) return res.redirect("/")
+		var query={author:req.session.user.username};
 		
 		Votes.find({},function(error,data){
 			if(error) return next(error);
