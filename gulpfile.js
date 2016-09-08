@@ -29,8 +29,6 @@ gulp.task("styles",function(){
 			
 })		
 
-
-
 gulp.task('server', function () {
      
     server.run(["app.js"]);

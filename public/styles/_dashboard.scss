@@ -1,5 +1,14 @@
-.dashboard{
-	
+.dashboard-header, .dashboard{
 	display:flex;
-	flex-wrap:wrap;	
+	justify-content:center;
+}
+.dashboard-header{
+	margin-top:70px;
+}
+.dashboard{
+	margin-top:30px;
+	flex-wrap:wrap;
+	@media screen and (min-width:700px){
+		justify-content:space-around;
+	}	
 }

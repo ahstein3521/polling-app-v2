@@ -1,21 +1,16 @@
-<form class="ballot" method="GET" action="/submitted">
+<form class="ballot" method="POST" action="/vote/{{ballot._id}}?_method=PUT" >
 {{#each ballot.options}} 
 	<div class="radio">
-		<label>
-			<input type="radio" name="option" value={{this.name}} required>
+		<label for="{{this._id}}">
+			<input type="radio" name="option" id="{{this._id}}" value="{{this._id}}">
 			{{this.name}}
 		</label>
 	</div>
 {{/each}}
-{{#if user.username}}
-	<div class="radio alt-option">
-		<label >
-			<input type="radio" name="option" value="Other" class="alt-radio">
-			Other
-		</label>
-	</div>
+{{#if user}}
+	<input type="text" placeholder="Add a new option..." name="newOption">
 {{/if}}
-	<div class='form-btn'>
+	<div>
 		<input type="submit" class="btn-primary center-block">
 	</div>			
 </form>

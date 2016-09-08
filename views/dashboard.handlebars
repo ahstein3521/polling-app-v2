@@ -1,9 +1,13 @@
-
-	<div class="dashboard container-fluid">
+<div class="dashboard-header">
+	<h4>{{user.username}}</h4>
+	<img class="profile-pic img-rounded" src="{{user.photo}}">
+</div>
+<div class="dashboard container-fluid">
 	{{#ballots}}
-
 	<div>
-		<button class="pull-right delete-btn" onclick="handleDelete(this,'{{_id}}')" title="Delete">&Cross;</button>
+		<form method="POST" action="/vote?_method=DELETE&id={{_id}}">
+			<input type="submit" class="pull-right delete-btn" title="Delete" value="&cross;">
+		</form>
 		<div class="panel panel-default">
 		  <div class="panel-heading">
 		  	<a href="/vote?id={{_id}}" target="_blank">
@@ -31,4 +35,4 @@
 		</div>
 	</div>
 	{{/ballots}}
-	</div>
+</div>

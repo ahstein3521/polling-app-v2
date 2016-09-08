@@ -10,9 +10,9 @@ module.exports=function(app){
 			return next();
 		}else if(error.status==404){
 			res.status(404);
-			return res.render("error",{message:"The page you are looking for does not exist."})
+			return res.render("error",{title:"404",message:"The page you are looking for does not exist."})
 		}else{
-			res.render("error",{message:"An error has occured"})
+			res.render("error",{title:"Error",message:"An error has occured"})
 		}
 	})	
 }

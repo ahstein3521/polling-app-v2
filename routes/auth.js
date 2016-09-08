@@ -1,3 +1,4 @@
+
 module.exports=function(app){
 	var passport=require("passport");
 	
@@ -6,11 +7,9 @@ module.exports=function(app){
 	app.get('/auth/error', function(req,res){
 		res.redirect("/error")
 	});
-	
 	app.get('/auth/callback',
 		passport.authenticate('github', {failureRedirect: '/auth/error'}),
   		function(req,res){
-  			req.session.user=req.user.user;
   			res.redirect("/")
   		}
   	);

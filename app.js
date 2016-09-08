@@ -7,10 +7,11 @@ var mongoose = require('mongoose');
 var cookieParser=require('cookie-parser')
 var bodyParser=require('body-parser');
 var requestIp = require('request-ip');
+var methodOverride=require("method-override")
 
 require('dotenv').config();
 
-
+mongoose.Promise=require("bluebird");
 mongoose.connect(process.env.mongoID);
 
 
@@ -19,6 +20,7 @@ app.use(requestIp.mw())
 app.use(cookieParser());
 app.use(session({secret:process.env.cookie_secret,saveUninitialized:true,resave:false}));
 app.use(bodyParser.urlencoded({ extended: true}))
+app.use(methodOverride('_method'));
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
